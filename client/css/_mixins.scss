@@ -1,0 +1,126 @@
+/*~~~~~~~~~~~~~~~*/
+/*  FLEX MIXINS  */
+/*~~~~~~~~~~~~~~~*/
+
+/* Container */
+/*~~~~~~~~~~~~~~~*/
+    /* adds display:flex */;
+    @mixin flexbox() {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+
+    /*  flex-direction: row | row-reverse | column | column-reverse;  */
+    /*  flex-wrap: nowrap | wrap | wrap-reverse;  */
+    @mixin flex-flow($direction, $wrap){
+      -webkit-box-flex-flow: $direction $wrap;
+      -moz-box-flex-flow:  $direction $wrap;
+      -webkit-flex-flow:  $direction $wrap;
+      -ms-flex-flow:  $direction $wrap;
+      flex-flow:  $direction $wrap;
+    }
+
+    /*  justify-content: flex-start | flex-end | center | space-between | space-around;  */
+    @mixin justify-content($val){
+      -webkit-box-justify-content: $val;
+      -moz-box-justify-content:  $val;
+      -webkit-justify-content:  $val;
+      -ms-justify-content:  $val;
+      justify-content:  $val;
+    }
+    /*   align-items: flex-start | flex-end | center | baseline | stretch; */
+    @mixin align-items($val){
+      -webkit-box-align-items: $val;
+      -moz-box-align-items:  $val;
+      -webkit-align-items:  $val;
+      -ms-align-items:  $val;
+      align-items:  $val;
+    }
+    /*   align-content: flex-start | flex-end | center | space-between | space-around | stretch; */
+    @mixin align-content($val){
+      -webkit-box-align-content: $val;
+      -moz-box-align-content:  $val;
+      -webkit-align-content:  $val;
+      -ms-align-content:  $val;
+      align-content:  $val;
+    }
+
+/*  ITEMS */
+/* ~~~~~~~~~~~~~~~~*/
+
+    /*   order: <integer>; */
+    @mixin order($val){
+      -webkit-box-order: $val;
+      -moz-box-order:  $val;
+      -webkit-order:  $val;
+      -ms-order:  $val;
+      order:  $val;
+    }
+
+    /*
+        flex-grow: <number>;   //default 0
+        flex-shrink: <number>; // default 1
+        flex-basis: <length> | auto; // default auto
+    */
+    @mixin flex($v1, $v2, $v3) {
+      -webkit-box-flex: $v1 $v2 $v3;
+      -moz-box-flex:  $v1 $v2 $v3;
+      -webkit-flex:  $v1 $v2 $v3;
+      -ms-flex:  $v1 $v2 $v3;
+      flex:  $v1 $v2 $v3;
+    }
+    /*    align-self: auto | flex-start | flex-end | center | baseline | stretch; */
+    @mixin align-self($val){
+      -webkit-box-align-self: $val;
+      -moz-box-align-self:  $val;
+      -webkit-align-self:  $val;
+      -ms-align-self:  $val;
+      align-self:  $val;
+    }
+
+
+/* ~~~~~~~~~~~~~ */
+/*  TRANSITIONS  */
+/* ~~~~~~~~~~~~~ */
+
+@mixin transition($val){
+  -webkit-transition: $val;
+     -moz-transition: $val;
+      -ms-transition: $val;
+          transition: $val;
+}
+
+@mixin box-shadow($top, $left, $blur, $color) {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+}
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
