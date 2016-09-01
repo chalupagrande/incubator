@@ -710,7 +710,7 @@ hr.short {
 /* Home
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .home {
-  background: url(../../../dist/images/home-bg.jpg);
+  background: url(../../../client/images/home-bg.jpg);
   background-size: cover;
   background-position: center bottom;
   color: white;
